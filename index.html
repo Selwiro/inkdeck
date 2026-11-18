@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>纸屏牌组 Inkdeck · 墨水屏背诵客户端</title>
+  <meta name="description" content="纸屏牌组（Inkdeck）是一款为 Android 墨水屏设备重做的本地优先背诵客户端：导入 .apkg，按 Anki 调度复习；0.1.0 无账号、无网络权限、无广告，二期接入 AnkiWeb 官方同步。">
+  <meta name="keywords" content="纸屏牌组,Inkdeck,墨水屏,电纸书,背单词,记忆卡,Anki,apkg,Android,本地优先,AnkiWeb同步,开源">
+  <meta name="author" content="Inkdeck">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://selwiro.github.io/inkdeck/">
+  <meta name="theme-color" content="#ffffff">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="纸屏牌组 Inkdeck">
+  <meta property="og:title" content="纸屏牌组 Inkdeck · 墨水屏背诵客户端">
+  <meta property="og:description" content="本地优先：导入 .apkg，按官方调度复习；0.1.0 无账号、无网络权限、无广告。为墨水屏的刷新与对比度重做。">
+  <meta property="og:url" content="https://selwiro.github.io/inkdeck/">
+  <meta property="og:image" content="https://selwiro.github.io/inkdeck/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="纸屏牌组 Inkdeck · 墨水屏背诵客户端">
+  <meta name="twitter:description" content="本地优先：导入 .apkg，按官方调度复习；0.1.0 无账号、无网络权限、无广告。">
+  <meta name="twitter:image" content="https://selwiro.github.io/inkdeck/assets/img/og.png">
+
+  <link rel="icon" href="assets/img/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "纸屏牌组 Inkdeck",
+    "alternateName": "Inkdeck",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Android 8.0+",
+    "inLanguage": "zh-CN",
+    "url": "https://selwiro.github.io/inkdeck/",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+    "description": "面向 Android 墨水屏设备的本地优先背诵客户端，导入 .apkg，按 Anki 调度复习；二期接入 AnkiWeb 官方同步。",
+    "screenshot": "https://selwiro.github.io/inkdeck/assets/screens/decks.webp",
+    "license": "https://www.gnu.org/licenses/agpl-3.0.html"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <img src="assets/img/icon-32.png" width="32" height="32" alt="">
+        <span>纸屏牌组</span>
+        <small>Inkdeck</small>
+      </a>
+      <nav class="nav" aria-label="主导航">
+        <a href="#shots">截图</a>
+        <a href="#features">功能</a>
+        <a href="#design">墨水屏</a>
+        <a href="#download">下载</a>
+        <a href="https://github.com/Selwiro/inkdeck">源码</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="wrap hero">
+      <p class="kicker">Android · 墨水屏</p>
+      <h1>纸屏牌组</h1>
+      <p class="lead">为墨水屏重做的本地优先背诵客户端。把 <code>.apkg</code> 放进设备，分页浏览、按官方调度复习、查看统计；0.1.0 无账号、无网络权限、无广告与埋点，学习记录只留在本机，二期接入 AnkiWeb 官方同步。</p>
+      <p class="actions">
+        <a class="button" href="https://github.com/Selwiro/inkdeck/releases">下载 APK</a>
+        <a class="button secondary" href="https://github.com/Selwiro/inkdeck">查看源码</a>
+      </p>
+      <ul class="facts">
+        <li>Android 8.0+</li>
+        <li>本地优先</li>
+        <li>AGPL-3.0</li>
+      </ul>
+    </section>
+
+    <section class="wrap" id="shots">
+      <h2>界面截图</h2>
+      <p class="note">0.1.0 构建在墨案 InkPad X 上的实机画面，牌组为演示数据；界面会随版本迭代调整。</p>
+      <div class="gallery">
+        <figure>
+          <a href="assets/screens/decks.webp"><img src="assets/screens/decks.webp" width="1200" height="1536" alt="牌组首页：每行显示新卡、学习中与待复习数量"></a>
+          <figcaption>牌组首页</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/screens/review.webp"><img src="assets/screens/review.webp" width="1200" height="1536" alt="复习页：问题面与四档评分按钮"></a>
+          <figcaption>复习评分</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/screens/card-browse.webp"><img src="assets/screens/card-browse.webp" width="1200" height="1536" alt="卡片浏览：整卡渲染，支持图片与音频"></a>
+          <figcaption>卡片浏览</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/screens/stats.webp"><img src="assets/screens/stats.webp" width="1200" height="1536" alt="统计页：今日复习、正确率与卡片构成"></a>
+          <figcaption>今日统计</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap" id="features">
+      <h2>功能</h2>
+      <ul class="feature-list">
+        <li><strong>本地导入</strong>：选择或分享 <code>.apkg</code>，包内图片与音频一并入库；失败回滚，不留半套牌组。</li>
+        <li><strong>分页浏览</strong>：牌组与卡片按屏高固定每页条数，底部翻页条，不做无限滚动。</li>
+        <li><strong>四档评分</strong>：重来 / 困难 / 良好 / 容易，间隔由 rslib 按牌组原有调度计算；音量键可翻面与评分。</li>
+        <li><strong>整卡渲染</strong>：支持常见 HTML 子集、图片等比缩放与音频播放，题答分隔线按墨水屏对比度调整。</li>
+        <li><strong>今日统计</strong>：复习数、正确率、用时、到期量与卡片构成，两页翻完。</li>
+        <li><strong>三种语言</strong>：English / 简体中文 / 繁體中文，默认跟随系统，也可在设置页固定。</li>
+      </ul>
+    </section>
+
+    <section class="wrap" id="design">
+      <h2>为墨水屏而做</h2>
+      <ul class="rule-list">
+        <li>无动画、无涟漪、无加载动画，翻卡与切换整页重绘。</li>
+        <li>固定白底黑字，高对比度，不依赖彩色与阴影。</li>
+        <li>分页替代滚动，避免长列表与嵌套滚动。</li>
+        <li>正文不小于 18sp，字号 18 / 22 / 26 三档，控件同步放大。</li>
+        <li>点击目标不小于 48dp，主要操作在单手可达区。</li>
+        <li>可手动整屏刷新清残影；策略与设备差异记录在仓库文档里。</li>
+      </ul>
+    </section>
+
+    <section class="wrap" id="privacy">
+      <h2>隐私</h2>
+      <p>0.1.0 不申请网络权限，没有账号体系，没有广告、统计 SDK 或崩溃上报。牌组、媒体与学习记录只写入应用私有目录；卸载即删除。二期接入 AnkiWeb 官方同步后才会申请网络访问与 AnkiWeb 账号。</p>
+      <p class="note">导入的牌组内容来自你自己的文件，0.1.0 不会上传任何数据；二期的 AnkiWeb 同步由你主动开启。</p>
+    </section>
+
+    <section class="wrap" id="download">
+      <h2>下载</h2>
+      <p>0.1.0 是测试版（pre-release），按 ABI 拆分为两个包，按设备任选其一；签名一致，可覆盖升级。发布包与校验文件都在 GitHub Releases。</p>
+      <table class="abi">
+        <thead>
+          <tr><th>文件</th><th>适用设备</th><th>体积</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>inkdeck-0.1.0-arm64-v8a.apk</code></td><td>绝大多数 2017 年后的 Android 设备与 arm64 墨水屏</td><td>22 MB</td></tr>
+          <tr><td><code>inkdeck-0.1.0-armeabi-v7a.apk</code></td><td>32 位老设备、Kindle 改造路线</td><td>约 19 MB</td></tr>
+        </tbody>
+      </table>
+      <p class="actions">
+        <a class="button" href="https://github.com/Selwiro/inkdeck/releases">前往 Releases 下载</a>
+      </p>
+      <p class="note">安装后首次启动即可导入牌组；从 debug 包切换需先卸载。完整性校验见 Release 附带的 <code>SHA256SUMS.txt</code>。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>纸屏牌组 Inkdeck · 以 AGPL-3.0 发布 · 源码与问题反馈见 <a href="https://github.com/Selwiro/inkdeck">GitHub</a></p>
+      <p class="note">Inkdeck 是非官方的 Anki 兼容客户端，与 Anki Co., Ltd. 无关联。调度与数据模型复用 Anki 官方 Rust 后端 rslib（固定 tag 26.09.4）。</p>
+    </div>
+  </footer>
+</body>
+</html>
