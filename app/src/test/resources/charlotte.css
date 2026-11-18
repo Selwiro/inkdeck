@@ -1,0 +1,298 @@
+.card {
+    font-family: "Segoe UI", Arial, "Microsoft Yahei", sans-serif;
+    background: none;
+    margin: 0;
+    padding: 20px 10px;
+    line-height: 1.6;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.deck-name {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #444;
+}
+
+.card-type {
+    font-size: 12px;
+    color: #666;
+    padding: 2px 6px;
+    background: #f0f0f0;
+    border-radius: 2px;
+}
+.question-area {
+    margin: 25px 0 20px 0;
+}
+.question-content {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 8px;
+    padding-left: 5px;
+}
+#expression{
+  font-weight: bold;
+}
+#audio{
+  margin-left: 5px;
+  display:inline-block;
+}
+#reading{
+  font-weight:normal;
+  margin:0 5px;
+  font-size: 0.6em;
+  display:inline-block;
+}
+
+.image {
+    text-align: center;
+}
+
+.sentence {
+    margin: 10px 0 25px 0;
+    padding: 20px 0;
+    position: relative;
+}
+.sentence::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, #f0f0f0, #ccc, #f0f0f0);
+}
+
+.sentence-content {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    padding-left: 5px;
+}
+
+.answer-area {
+    margin: 5px 0 10px 0;
+    padding: 20px 0;
+    position: relative;
+}
+
+.answer-area::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, #f0f0f0, #ccc, #f0f0f0);
+}
+.answer-content {
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 5px;
+}
+
+
+
+
+
+/*general css style for manual card*/
+div u:first-child{
+  text-decoration:none;
+  font-size:0.9em; 
+  margin-right:5px; 
+  padding:2px 4px; 
+  color:white; 
+  background-color:#0d47a1; 
+  border-radius:3px;
+}
+
+div i:first-child{
+  font-style:normal;
+  display:block;
+  margin:5px 0;
+  padding:5px;
+  background:rgba(13,71,161,0.1); 
+  border-radius:5px;
+  font-size:0.9em;
+}
+
+
+/*special fomat for Collins*/
+._collins_c .explanation_item ul:empty{
+  margin:0;
+  padding:0;
+}
+
+/*special fomat for ODH*/
+.odh-playsound {
+  vertical-align: text-bottom;
+  margin: 0 3px;
+}
+
+.chn_tran{
+  display:initial; 
+  /*display:none; */
+}
+
+.chn_sent{
+  display:initial; 
+  /*display:none; */
+}
+
+/*special fomat for LDOCE4*/
+.L_ENT,
+.L_ENT+br{
+  display:none
+}
+.L_NOT{
+  margin-right:5px;
+  border-radius:50%;
+  padding:1px 2px;
+}
+
+.L_NOT,
+.L_SYL,
+.L_NOT+br{
+  display:none
+}
+
+.L_POS{
+  font-weight:normal!important;
+  border-radius:3px;
+  padding:2px 4px!important;
+  margin: 0 5px 0 0!important;
+  background-color:#0d47a1!important;
+}
+
+.L_DEC{
+  display:inline!important;
+  margin-left:5px!important;
+}
+
+.L_SYN{
+  color:navy!important;
+  border-color:navy!important;
+  margin-right:5px!important;
+}
+
+.L_REG,
+.L_SYN,
+.L_REF{
+  font-weight:normal!important
+}
+.L_EX{
+  margin:3px 0!important;
+  border:initial!important;
+  padding:5px!important;
+  background:rgba(13,71,161,0.1)!important; 
+  border-radius:5px;
+  font-size:0.9em;
+}
+
+.L_RND{
+  display:none;
+}
+.L_CEX{
+  color:navy!important;
+  margin-left:initial!important;
+}
+font[color="black"]{
+  display:none;
+}
+
+.L_HR1,
+.L_HR2,
+.L_HR3{
+  height:initial!important;
+  border: 1px!important;
+  margin: 8px 0!important;    
+  border-top : 1px solid #d5d5d5!important; 
+}
+
+.hidden{
+  display:none!important;
+}
+
+ul {
+  background: none !important;
+	border: 1px solid #ccc;
+}
+
+</style>
+<script>
+function playAudio(wordID) {
+	var word = document.getElementById(wordID).innerText;
+    var base = "http://dict.youdao.com/dictvoice?type=2&audio="; 
+    //var base = "http://fanyi.baidu.com/gettts?lan=en&text=";
+    var audioSrc = base + encodeURI(word);
+    //检查是否为电脑端
+    if(typeof(py)=="object"){
+    //如果是电脑端，需安装插件 #498789867(replay button on card)才能发音
+        py.link("ankiplay"+audioSrc)
+}
+
+else {
+	var player=document.getElementById('player')
+        player.src=audioSrc
+        player.play()
+}
+}
+
+function ldoce4_convertKPP() {
+	[].forEach.call(document.querySelectorAll('font[face="Kingsoft Phonetic Plain, Tahoma"]'), function(div) {
+        div.outerHTML = '<span class="kpp">' + div.innerHTML + '</span>'
+});
+}
+
+function textNodesUnder(node) {
+	var all = [];
+  for (node=node.firstChild;node;node=node.nextSibling){
+    if (node.nodeType==3) all.push(node);
+    else all = all.concat(textNodesUnder(node));
+}
+
+return all;
+}
+
+function ldoce4_clearIPA() {
+textNodesUnder(document).forEach(function(node) {
+        if (node.textContent == ' / ' || node.textContent == ' /')
+            node.textContent = '';
+});
+    [].forEach.call(document.querySelectorAll('.kpp'), function(div) {
+div.classList.add('hidden');
+});
+}
+
+function toggleTrans() {
+var customized = []; //add your own css class here
+
+    var general = ['font[color]']
+    var ldoce4 = ['.L_DEC', '.L_CEX', '.L_DCH','b+b[style]','.L_CUK+font[style]'];
+    var collins = ['.explanation_box>.text_blue', '.explanation_item li>p+p','.vExplain_r li>p+p'];
+    var odh = ['.chn_tran', '.chn_sent'];
+
+    var transClass = customized.concat(general,ldoce4,collins,odh).join();
+
+    [].forEach.call(document.querySelectorAll(transClass), function(div) {
+        div.classList.toggle('hidden');
+});
+}
+</script>
+
+<style> �Ś��2*�^A\documentclass[12pt]{article}
+\special{papersize=3in,5in}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\pagestyle{empty}
+\setlength{\parindent}{0in}
+\begin{document}
+2^N\end{document}B	^P^A^Z^E
+

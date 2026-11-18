@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      墨水屏主题：关闭系统窗口动画与 Activity 过渡，避免整屏刷新时出现插值动画。
+      对应 AGENTS.md「墨水屏硬性设计规则」第 1 条。
+    -->
+    <style name="Theme.Inkdeck.Base" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowContentTransitions">false</item>
+        <item name="android:windowActivityTransitions">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:colorAccent">@color/ink_ink</item>
+    </style>
+
+    <style name="Theme.Inkdeck" parent="Theme.Inkdeck.Base" />
+</resources>

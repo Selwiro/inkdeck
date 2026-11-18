@@ -1,0 +1,50 @@
+# Gradle
+.gradle/
+/build/
+/app/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# rslib 构建产物：上游源码与 .so 都不进版本库
+/rslib/anki/
+/rslib/anki_descriptors.bin
+/rslib/bridge/target/
+/app/src/main/jniLibs/
+
+# 本机配置（含 SDK/签名路径），不进仓库
+local.properties
+keystore.properties
+.env
+.env.*
+*.p12
+
+# IDE
+.idea/
+*.iml
+.kotlin/
+
+# 系统
+.DS_Store
+*.hprof
+captures/
+
+# 构建脚本从 rslib/anki_descriptors.bin 拷过来的产物
+/app/src/main/assets/anki_descriptors.bin
+
+# 卡组/集合包可能含个人学习数据，不入库
+*.apkg
+*.colpkg
+*.anki2
+
+# 截图不入库（本地保留，发布时作为 Release 附件分发）
+/docs/eink/screenshots/
+/docs/screenshots/
+
+# 日志
+*.log
+
+# 发布密钥：只放仓库外，通过环境变量/未跟踪属性引用
+*.jks
+*.keystore
+
+# 本地分发包（含签名后的 APK，不入库）
+/dist/

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inkdeck</string>
+
+    <!-- Tabs / common -->
+    <string name="tab_decks">Decks</string>
+    <string name="tab_import">Import</string>
+    <string name="tab_stats">Stats</string>
+    <string name="tab_settings">Settings</string>
+    <string name="retry">Retry</string>
+    <string name="page_prev">‹ Previous</string>
+    <string name="page_next">Next ›</string>
+    <string name="page_first">First page</string>
+    <string name="page_last">Last page</string>
+    <string name="page_indicator">%1$d / %2$d</string>
+
+    <!-- Deck list -->
+    <string name="deck_counts">New %1$d · Learn %2$d · Due %3$d</string>
+    <string name="due_label">Due</string>
+    <string name="reading_decks">Reading decks…</string>
+    <string name="read_decks_failed">Could not read decks</string>
+    <string name="empty_decks_title">No decks yet</string>
+    <string name="empty_decks_hint">Import an .apkg deck package to get started.</string>
+    <string name="import_deck_package">Import .apkg</string>
+
+    <!-- Card list -->
+    <string name="cards_page_info">%1$d cards · page %2$d/%3$d</string>
+    <string name="reading_cards">Reading cards…</string>
+    <string name="read_cards_failed">Could not read cards</string>
+    <string name="no_cards">This deck has no cards.</string>
+    <string name="card_list_hint">Tap any card to view it in full.</string>
+    <string name="browse_card_subtitle">Browse card</string>
+    <string name="render_failed">Render failed: %1$s</string>
+    <string name="rendering">Rendering…</string>
+
+    <!-- Review -->
+    <string name="review_failed">Study interrupted: %1$s</string>
+    <string name="review_loading">Fetching the next card…</string>
+    <string name="review_show_answer">Show answer</string>
+    <string name="review_back_to_question">Back to question</string>
+    <string name="review_remaining">New %1$d · Learn %2$d · Due %3$d</string>
+    <string name="review_learning">Study</string>
+    <string name="review_again">Again</string>
+    <string name="review_hard">Hard</string>
+    <string name="review_good">Good</string>
+    <string name="review_easy">Easy</string>
+    <string name="review_skip_broken">Suspend and skip</string>
+    <string name="review_broken_title">This card has no content to show.</string>
+    <string name="review_broken_hint">A cloze may be missing, the template empty, or the fields unfilled.\nYou can suspend this card and continue.</string>
+    <string name="review_finished">This round is complete.</string>
+    <string name="review_none_today">No cards to study in this deck today.</string>
+    <string name="review_summary">%1$d cards: Again %2$d · Hard %3$d · Good %4$d · Easy %5$d</string>
+    <string name="review_back_to_decks">Back to decks</string>
+    <string name="card_list">Card list</string>
+
+    <!-- Stats -->
+    <string name="read_stats_failed">Could not read stats</string>
+    <string name="reading_stats">Reading stats…</string>
+    <string name="stats_title">Stats</string>
+    <string name="stats_today">Today</string>
+    <string name="stats_reviewed_today">Reviewed today</string>
+    <string name="stats_correct_today">Correct today</string>
+    <string name="stats_minutes_today">Minutes today</string>
+    <string name="stats_due_today">Due today</string>
+    <string name="unit_cards">cards</string>
+    <string name="unit_minutes">min</string>
+    <string name="stats_future">Upcoming</string>
+    <string name="stats_due_tomorrow">Due tomorrow</string>
+    <string name="stats_daily_load">Daily load</string>
+    <string name="stats_count_value">%1$d cards</string>
+    <string name="stats_no_data">No review data yet. Import a deck and finish a first round.</string>
+    <string name="stats_card_counts">Card composition</string>
+    <string name="stats_new_cards">New</string>
+    <string name="stats_learning_cards">Learning</string>
+    <string name="stats_young_cards">Young</string>
+    <string name="stats_mature_cards">Mature</string>
+    <string name="stats_suspended_cards">Suspended</string>
+    <string name="stats_scheduling">Scheduling</string>
+    <string name="stats_scheduler">Scheduler</string>
+    <string name="stats_counts_note">Composition from card_counts.excluding_inactive.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_font_size">Font size</string>
+    <string name="settings_language">Language</string>
+    <string name="language_system">System</string>
+    <string name="language_zh">简体中文</string>
+    <string name="language_zh_hant">繁體中文</string>
+    <string name="language_en">English</string>
+    <string name="settings_contrast">Contrast</string>
+    <string name="contrast_standard">Standard</string>
+    <string name="contrast_soft">Soft</string>
+    <string name="contrast_softer">Softer</string>
+    <string name="settings_refresh">Refresh</string>
+    <string name="settings_refresh_now">Refresh screen now (clear ghosting)</string>
+    <string name="settings_persist_note">Changes apply immediately and survive restarts.</string>
+
+    <!-- Import -->
+    <string name="import_title">Import deck</string>
+    <string name="import_choose_file">Choose .apkg file</string>
+    <string name="import_idle_line1">Copy an .apkg to the device, or share it from a file manager.</string>
+    <string name="import_idle_line2">Images and audio inside the package are imported too.</string>
+    <string name="import_notes_title">Notes</string>
+    <string name="import_idle_note">Importing the same package again only fills missing cards; it does not duplicate them.</string>
+    <string name="import_copying">Copying</string>
+    <string name="import_copying_hint">Copying the file into app-private storage…</string>
+    <string name="import_copied_progress">Copied %1$s / %2$s</string>
+    <string name="import_copied">Copied %1$s</string>
+    <string name="import_cancel_copy">Cancel copy</string>
+    <string name="import_duplicate_title">This package was imported before</string>
+    <string name="import_duplicate_hint">Importing again adds only missing cards; existing cards are not duplicated.</string>
+    <string name="import_again">Import anyway (skip duplicates)</string>
+    <string name="import_discard_package">Discard this package</string>
+    <string name="import_importing">Importing</string>
+    <string name="import_importing_hint">Please do not leave the app.</string>
+    <string name="import_stage_waiting">Waiting for the backend to start</string>
+    <string name="import_elapsed">%1$d s elapsed</string>
+    <string name="import_cancel_import">Cancel import</string>
+    <string name="import_done">Import complete</string>
+    <string name="import_done_no_change">No cards were added or updated.</string>
+    <string name="import_done_skip_cleaned">All notes conflicted with the existing collection and were skipped; removed %1$d newly created empty decks.</string>
+    <string name="import_done_skip">All notes conflicted with the existing collection and were skipped; nothing was added.</string>
+    <string name="import_done_changed">Added %1$d notes, updated %2$d.</string>
+    <string name="import_count_notes">%1$d</string>
+    <string name="import_count_files">%1$d</string>
+    <string name="import_count_cards">%1$d</string>
+    <string name="import_duplicate_skipped">Duplicates skipped</string>
+    <string name="import_conflicts">Conflicts</string>
+    <string name="import_media">Media files</string>
+    <string name="import_removed_decks">Empty decks removed</string>
+    <string name="import_collection_cards">Cards in collection</string>
+    <string name="import_select_again">Choose another package</string>
+    <string name="import_failed">Import did not finish</string>
+    <string name="import_failed_hint">The collection was rolled back; choose the file and try again.</string>
+    <string name="import_reselect">Choose file again</string>
+    <string name="import_discard">Dismiss</string>
+
+    <!-- Import errors -->
+    <string name="import_err_not_package">This is not an Anki deck package (.apkg): %1$s</string>
+    <string name="import_err_no_space">Not enough storage: need %1$s, available %2$s</string>
+    <string name="import_err_corrupt">The package is damaged or unreadable: %1$s</string>
+    <string name="import_err_cancelled">Import cancelled; no cards were written</string>
+    <string name="import_err_empty_file">File is empty</string>
+    <string name="import_err_not_zip">Not a zip archive</string>
+    <string name="import_err_no_collection">No collection.anki2/anki21/anki21b inside</string>
+    <string name="import_err_zip_broken">Zip structure is damaged</string>
+    <string name="import_err_copy_failed">Copy failed</string>
+    <string name="import_err_copy_failed_detail">Copy failed: %1$s</string>
+    <string name="import_err_import_failed_detail">Import failed: %1$s</string>
+    <string name="import_err_corrupt_detail">Package damaged or unreadable.\n%1$s</string>
+    <string name="import_err_invalid_detail">Package contents are invalid.\n%1$s</string>
+    <string name="import_err_rejected_detail">Anki rejected the import.\n%1$s</string>
+    <string name="import_err_failed_detail">Import failed: %1$s</string>
+    <string name="import_err_open_file">Could not open the selected file</string>
+
+    <!-- Media -->
+    <string name="media_missing_image">(missing image: %1$s)</string>
+    <string name="media_undecodable_image">(cannot decode: %1$s)</string>
+    <string name="media_missing_audio">(missing audio: %1$s)</string>
+</resources>

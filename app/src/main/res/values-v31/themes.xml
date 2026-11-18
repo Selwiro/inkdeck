@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Android 12+ 系统 SplashScreen：图标动画时长设为 0，避免启动时在墨水屏上
+      出现一段系统淡入/缩放；背景保持纸色。
+    -->
+    <style name="Theme.Inkdeck" parent="Theme.Inkdeck.Base">
+        <item name="android:windowSplashScreenBackground">@color/ink_paper</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/ink_paper</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
+    </style>
+</resources>

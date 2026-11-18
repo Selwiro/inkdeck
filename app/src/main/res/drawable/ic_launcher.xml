@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 由 work/design/inkdeck-icon.svg 转换：白底和黑色闪卡线条。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="128"
+    android:viewportHeight="128">
+    <path
+        android:fillColor="@color/ink_icon_background"
+        android:pathData="M0,0H128V128H0Z" />
+    <group
+        android:pivotX="64"
+        android:pivotY="64"
+        android:scaleX="0.825"
+        android:scaleY="0.825">
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#000000"
+            android:strokeWidth="1.818"
+            android:strokeLineCap="round"
+            android:pathData="M105 56v29a8 8 0 0 1 -8 8H40" />
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#000000"
+            android:strokeWidth="1.818"
+            android:strokeLineJoin="round"
+            android:pathData="M32 35h41.5a4 4 0 0 1 2.8 1.2l14.5 14.5a4 4 0 0 1 1.2 2.8V74a6 6 0 0 1 -6 6H32a6 6 0 0 1 -6 -6V41a6 6 0 0 1 6 -6Z" />
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#000000"
+            android:strokeWidth="1.818"
+            android:strokeLineCap="round"
+            android:pathData="M40 52h29M40 65h17" />
+    </group>
+</vector>

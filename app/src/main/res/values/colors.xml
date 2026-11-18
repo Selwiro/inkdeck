@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 墨水屏基色：只有纸色与墨色，不用灰阶过渡 -->
+    <color name="ink_paper">#FFFFFFFF</color>
+    <color name="ink_ink">#FF000000</color>
+    <color name="ink_icon_background">@color/ink_paper</color>
+</resources>

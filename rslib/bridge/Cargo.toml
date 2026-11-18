@@ -1,0 +1,29 @@
+[package]
+name = "rslib-bridge"
+version = "0.0.1"
+edition = "2021"
+publish = false
+license = "AGPL-3.0-or-later"
+build = "build.rs"
+
+[lib]
+name = "rslib_bridge"
+crate-type = ["cdylib"]
+
+[dependencies]
+jni = "0.21"
+# 上游 rslib 依赖 tokio 的 io-util，但它的工作区没显式启用；
+# 独立构建时靠 feature 统一补上，详见 docs/rslib/build-troubleshooting.md
+tokio = { version = "1", features = ["io-util", "fs"] }
+# anki 源码由 rslib/build-android.sh 取到 rslib/anki/（不进版本库）
+anki = { path = "../anki/rslib", default-features = false }
+anki_proto = { path = "../anki/rslib/proto" }
+# 用上游自己的索引计算，保证与生成的 run_service_method 分发表一致
+anki_proto_gen = { path = "../anki/rslib/proto_gen" }
+prost = "0.13"
+prost-reflect = "0.14.7"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
