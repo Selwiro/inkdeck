@@ -298,11 +298,101 @@ The mirror is configured in the root `settings.gradle.kts`; missing artifacts fa
 - [E-ink design baseline and device matrix](docs/eink/README.md)
 - [rslib integration and measurements](docs/rslib/integration.md)
 
-### License and trademarks
+## Feedback and contributing
 
-This project is released under **AGPL-3.0**; see [`LICENSE`](LICENSE). Because it reuses rslib, distributing an APK requires providing the corresponding source: this repository, the upstream anki tag `26.09.4` fetched by `rslib/build-android.sh`, and the bridge source.
+Bug reports, suggestions and pull requests are all welcome. Version 0.1.0 has only been verified on one e-ink device, so reports from other models — especially about display, paging and ghosting — are particularly useful.
 
-“Anki” is a trademark of Anki Co., Ltd. This project uses it only for descriptive compatibility statements and is not affiliated with Anki; the product name and package name contain neither `Anki` nor `E Ink`.
+### Reporting issues
+
+Open an issue in [Issues](https://github.com/Selwiro/inkdeck/issues). A good bug report includes:
+
+- The app version (the release tag, or the version in the APK filename).
+- Device model, screen size and Android version, for example "Moaan InkPad X, 10-inch, Android 8.1".
+- Where it happens: decks / review / card browsing / statistics / settings.
+- Steps to reproduce, what you expected and what actually happened.
+- A redacted card template or screenshot when the problem is card rendering, and an `ink.inkdeck` filter of `adb logcat` where possible.
+
+Please protect your privacy: don't upload real deck contents, study history or screenshots containing personal information.
+
+### Contributing code
+
+For larger changes, discuss the approach in an issue first. Before submitting a pull request, run at least:
+
+```sh
+./gradlew :app:testDebugUnitTest
+./gradlew :app:assembleDebug
+```
+
+If the change touches e-ink layout, refresh behaviour or contrast, include a screenshot and name the device you verified it on, and update the matching record under `docs/eink/`. Conventions (build matrix, hard e-ink rules, dependency and licence requirements) are in "Developer documentation" above and in [`docs/eink/README.md`](docs/eink/README.md).
+
+Commit messages use:
+
+```text
+type(scope): summary
+```
+
+Never commit real deck data, signing keys or passwords, or build artifacts such as `app/src/main/jniLibs/`, `rslib/anki/` and `app/src/main/assets/anki_descriptors.bin`.
+
+## Acknowledgements
+
+Inkdeck runs on Anki's backend and a stack of open-source projects and public documentation. Thanks to all maintainers and contributors.
+
+### Core runtime libraries
+
+| Project | License | Purpose |
+|---|---|---|
+| [Kotlin](https://kotlinlang.org/) / [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) | Apache-2.0 | Language and coroutines |
+| [AndroidX](https://developer.android.com/jetpack/androidx) (Core / Activity / Lifecycle / ViewModel) | Apache-2.0 | App fundamentals, lifecycle and ViewModel |
+| [Jetpack Compose](https://developer.android.com/jetpack/compose) (UI / Foundation) | Apache-2.0 | Declarative UI and hand-drawn e-ink components |
+| [protobuf-java](https://github.com/protocolbuffers/protobuf) | BSD-3-Clause | Dynamic reads/writes of rslib protobuf requests and responses via descriptors |
+
+### Anki backend and reference implementation
+
+| Project | License | Purpose |
+|---|---|---|
+| [rslib](https://github.com/ankitects/anki) (Anki's Rust backend) | AGPL-3.0 | Import, deck tree, scheduling and statistics; pinned to upstream tag `26.09.4` |
+| [AnkiDroid](https://github.com/ankidroid/Anki-Android) / [Anki-Android-Backend](https://github.com/ankidroid/Anki-Android-Backend) | GPL-3.0 | Design reference for the "three JNI functions + protobuf" channel; our bridge is a separate implementation |
+
+### Development, build and test
+
+| Project | License | Purpose |
+|---|---|---|
+| [Gradle](https://gradle.org/) / [Android Gradle Plugin](https://developer.android.com/build) | Apache-2.0 | Build system |
+| Kotlin Gradle Plugin / Compose Compiler | Apache-2.0 | Compilation and Compose code generation |
+| [OpenJDK](https://openjdk.org/) | GPLv2 + Classpath Exception | Build/runtime JDK |
+| [JUnit 4](https://junit.org/junit4/) | Eclipse Public License 1.0 | JVM and instrumentation tests |
+| [Android SDK / NDK / Build Tools](https://developer.android.com/studio) | Android SDK License (proprietary) | Android platform, native cross-compilation and packaging |
+| [Rust](https://www.rust-lang.org/) toolchain | MIT / Apache-2.0 | Cross-compiling the rslib bridge |
+| [cargo-ndk](https://github.com/bbqsrc/cargo-ndk) | Apache-2.0 | Driving the NDK toolchain to package the Android native library |
+| [protoc](https://github.com/protocolbuffers/protobuf) | BSD-3-Clause | Generating Anki's protobuf descriptor set |
+
+### References and standards
+
+- [Anki manual](https://docs.ankiweb.net/): source of deck, card, scheduling and four-grade terminology.
+- [Anki desktop](https://apps.ankiweb.net/): reference for the study flow and information architecture.
+- [Android developer documentation](https://developer.android.com/docs): Compose, permissions, media playback and platform behaviour.
+- The official [GNU AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html) text.
+
+### Full dependency list
+
+Dependency coordinates and versions are pinned in [`gradle/libs.versions.toml`](gradle/libs.versions.toml). New dependencies must record their coordinates, version and license and be compatible with AGPL-3.0; this section only lists the main projects used directly or redistributed upstream.
+
+## License and contributions
+
+- **Source license**: this repository is licensed under the [GNU AGPL-3.0](LICENSE). You may read, modify, build and redistribute it, including for free, provided you keep the copyright and license notices and comply with AGPL-3.0.
+- **Source duty from rslib**: because Inkdeck reuses Anki's rslib, distributing an APK requires providing the complete corresponding source: this repository, the upstream anki tag `26.09.4` fetched by `rslib/build-android.sh`, and the bridge source. If a network service is ever offered, AGPL section 13 also requires offering users a way to obtain the source.
+- **External contributions**: Pull Requests are welcome; submitting one confirms you have the right to license the contribution under AGPL-3.0 and no DCO sign-off is required. Please open an issue first for larger changes and make sure the tests and the debug build pass.
+- **Trademarks**: "Anki" is a trademark of Anki Co., Ltd. This project uses it only for descriptive compatibility statements and is not affiliated with Anki; the product name and package name contain neither `Anki` nor `E Ink`.
+
+## Links
+
+- [Website and screenshots](https://selwiro.github.io/inkdeck/)
+- [GitHub Releases](https://github.com/Selwiro/inkdeck/releases)
+- [Issues](https://github.com/Selwiro/inkdeck/issues)
+- [Upstream Anki](https://github.com/ankitects/anki) (where rslib comes from)
+- [Anki manual](https://docs.ankiweb.net/)
+
+Website pages and screenshots live in the `gh-pages` branch; the Android source lives on `main`.
 
 ## Sponsor
 

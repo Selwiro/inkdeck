@@ -298,11 +298,101 @@ INKDECK_ALIYUN=1 ./gradlew :app:assembleDebug
 - [墨水屏设计基线与设备矩阵](docs/eink/README.md)
 - [rslib 接入方案与实测](docs/rslib/integration.md)
 
-### 许可证与商标
+## 反馈与贡献
 
-本项目以 **AGPL-3.0** 发布，见 [`LICENSE`](LICENSE)。因复用 rslib，分发 APK 时需同时提供对应源码：本仓库源码、`rslib/build-android.sh` 取到的上游 anki 固定 tag `26.09.4`，以及 bridge 源码。
+欢迎通过 GitHub Issues 反馈 Bug、提出建议，或通过 Pull Request 参与开发。0.1.0 只在一台墨水屏上做过真机验收，其他机型的显示、翻页与残影问题尤其需要反馈。
 
-「Anki」为 Anki Co., Ltd. 的商标，本项目仅作兼容性描述使用，与 Anki 官方无关联；产品名与包名不包含 `Anki` 或 `E Ink`。
+### 提交问题
+
+请在 [Issues](https://github.com/Selwiro/inkdeck/issues) 中描述问题。Bug 报告建议包含：
+
+- 应用版本（Releases 页的 tag，或 APK 文件名里的版本号）。
+- 设备型号、屏幕尺寸与 Android 版本，例如「墨案 InkPad X，10 英寸，Android 8.1」。
+- 出问题的页面：牌组 / 学习 / 卡片浏览 / 统计 / 设置。
+- 复现步骤、预期表现与实际表现。
+- 涉及卡片显示时，附上脱敏后的卡片模板或截图；能提供 `adb logcat` 中 `ink.inkdeck` 的日志更好。
+
+请注意保护隐私：不要上传真实牌组内容、学习记录或含个人信息的截图。
+
+### 提交代码
+
+较大的改动建议先开 Issue 讨论方案。提交 Pull Request 前，请至少运行：
+
+```sh
+./gradlew :app:testDebugUnitTest
+./gradlew :app:assembleDebug
+```
+
+改动涉及墨水屏版式、刷新或对比度时，请附验证设备与截图，并同步更新 `docs/eink/` 下的记录。开发约定（构建组合、墨水屏硬性规则、依赖与许可证要求）见上文「开发者文档」与 [`docs/eink/README.md`](docs/eink/README.md)。
+
+提交信息采用以下格式：
+
+```text
+type(范围): 摘要
+```
+
+请勿提交真实牌组数据、签名密钥、口令，以及 `app/src/main/jniLibs/`、`rslib/anki/`、`app/src/main/assets/anki_descriptors.bin` 等构建产物。
+
+## 致谢
+
+纸屏牌组能跑起来，靠的是 Anki 的后端与一批开源项目、公开资料。感谢所有维护者与贡献者。
+
+### 核心运行库
+
+| 项目 | 许可证 | 用途 |
+|---|---|---|
+| [Kotlin](https://kotlinlang.org/) / [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) | Apache-2.0 | 开发语言与协程 |
+| [AndroidX](https://developer.android.com/jetpack/androidx)（Core / Activity / Lifecycle / ViewModel） | Apache-2.0 | 应用基础能力、生命周期与 ViewModel |
+| [Jetpack Compose](https://developer.android.com/jetpack/compose)（UI / Foundation） | Apache-2.0 | 声明式界面与自绘墨水屏组件 |
+| [protobuf-java](https://github.com/protocolbuffers/protobuf) | BSD-3-Clause | 按 descriptor 集合动态读写 rslib 的 protobuf 请求 / 响应 |
+
+### Anki 后端与参考实现
+
+| 项目 | 许可证 | 用途 |
+|---|---|---|
+| [rslib](https://github.com/ankitects/anki)（Anki Rust 后端） | AGPL-3.0 | 导入、牌组树、调度与统计；上游固定 tag `26.09.4` |
+| [AnkiDroid](https://github.com/ankidroid/Anki-Android) / [Anki-Android-Backend](https://github.com/ankidroid/Anki-Android-Backend) | GPL-3.0 | 「三个 JNI 函数 + protobuf」通道的设计参考；本项目 bridge 为自行实现 |
+
+### 开发、构建与测试
+
+| 项目 | 许可证 | 用途 |
+|---|---|---|
+| [Gradle](https://gradle.org/) / [Android Gradle Plugin](https://developer.android.com/build) | Apache-2.0 | 构建系统 |
+| Kotlin Gradle Plugin / Compose Compiler | Apache-2.0 | 编译与 Compose 代码生成 |
+| [OpenJDK](https://openjdk.org/) | GPLv2 + Classpath Exception | 构建与运行 JDK |
+| [JUnit 4](https://junit.org/junit4/) | Eclipse Public License 1.0 | JVM 与 instrumentation 单元测试 |
+| [Android SDK / NDK / Build Tools](https://developer.android.com/studio) | Android SDK 许可（非开源） | Android 平台、原生交叉编译与打包 |
+| [Rust](https://www.rust-lang.org/) 工具链 | MIT / Apache-2.0 | 交叉编译 rslib bridge |
+| [cargo-ndk](https://github.com/bbqsrc/cargo-ndk) | Apache-2.0 | 调用 NDK 工具链打包 Android 原生库 |
+| [protoc](https://github.com/protocolbuffers/protobuf) | BSD-3-Clause | 生成 Anki 的 protobuf descriptor 集合 |
+
+### 参考与规范
+
+- [Anki 用户手册](https://docs.ankiweb.net/)：牌组、卡片、调度与四档评分的术语来源。
+- [Anki 官方客户端](https://apps.ankiweb.net/)：学习流程与信息架构的参考。
+- [Android 开发者文档](https://developer.android.com/docs)：Compose、权限、媒体播放与平台行为的参考。
+- [GNU AGPL-3.0](https://www.gnu.org/licenses/agpl-3.0.html) 官方文本。
+
+### 完整依赖清单
+
+依赖坐标与版本集中在 [`gradle/libs.versions.toml`](gradle/libs.versions.toml)。新增依赖须记录坐标、版本与许可证，并确认与 AGPL-3.0 兼容；本页只列直接使用或作为上游分发的主要项目。
+
+## 许可与贡献
+
+- **源码许可：** 本仓库以 [GNU AGPL-3.0](LICENSE) 发布。你可以阅读、修改、自行构建并再分发（包括免费再分发），只需保留版权与许可声明，并遵守 AGPL-3.0 的条款。
+- **rslib 带来的源码义务：** 因复用 Anki 的 rslib，分发 APK 时需同时提供完整对应源码：本仓库、`rslib/build-android.sh` 取到的上游 anki 固定 tag `26.09.4`，以及 bridge 源码。若将来提供联网服务，还需按 AGPL 第 13 条向使用者提供源码获取方式。
+- **外部贡献：** 欢迎 Pull Request；提交即表示你有权按 AGPL-3.0 授权该贡献，无需 DCO 签署。较大改动请先开 Issue 讨论，并跑通单测与 Debug 构建。
+- **商标：** 「Anki」为 Anki Co., Ltd. 的商标，本项目仅作兼容性描述使用，与 Anki 官方无关联；产品名与包名不包含 `Anki` 或 `E Ink`。
+
+## 相关链接
+
+- [官方网站与截图](https://selwiro.github.io/inkdeck/)
+- [GitHub Releases](https://github.com/Selwiro/inkdeck/releases)
+- [Issues / 问题反馈](https://github.com/Selwiro/inkdeck/issues)
+- [上游 Anki 项目](https://github.com/ankitects/anki)（rslib 的来源）
+- [Anki 用户手册](https://docs.ankiweb.net/)
+
+网站页面与截图资源维护在 `gh-pages` 分支，Android 应用源码维护在 `main` 分支。
 
 ## 赞助
 
